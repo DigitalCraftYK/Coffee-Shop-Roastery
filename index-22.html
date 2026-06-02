@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Ember & Oak Coffee Roastery | Specialty Coffee in Bengaluru</title>
+  <meta name="description" content="Ember & Oak is a specialty coffee roastery in Indiranagar, Bengaluru. Single-origin beans, expert roasting, pour-overs, espresso, and fresh roasted bags to take home." />
+  <meta name="keywords" content="specialty coffee Bengaluru, coffee roastery Indiranagar, single origin coffee, artisan coffee Bangalore, pour over coffee, espresso bar Bangalore, fresh roasted coffee beans India" />
+  <meta name="author" content="Ember & Oak Coffee Roastery" />
+  <link rel="canonical" href="https://emberandoak.in" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ember & Oak Coffee Roastery | Indiranagar, Bengaluru" />
+  <meta property="og:description" content="Specialty coffee roastery in Bengaluru. Single-origin beans, expert roasting, and a warm place to slow down." />
+  <meta property="og:url" content="https://emberandoak.in" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ivory:    #FDFAF5;
+      --paper:    #F7F2EA;
+      --linen:    #EDE5D8;
+      --sage:     #8A9E85;
+      --sage-lt:  #C8D6C5;
+      --terra:    #C4693A;
+      --terra-lt: #F0C4AC;
+      --bark:     #3D2B1A;
+      --bark-mid: #7A5840;
+      --text:     #2C1F12;
+      --text-md:  #6B5040;
+      --text-lt:  #A8927C;
+      --border:   #E2D8CC;
+      --white:    #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--ivory);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    h1,h2,h3,h4 {
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.15;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(253,250,245,0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px; max-width: 1120px; margin: 0 auto; padding: 0 28px;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem; font-weight: 600; letter-spacing: 0.02em;
+      color: var(--bark);
+    }
+    .logo span { color: var(--terra); font-style: italic; }
+
+    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+
+    .nav-links a {
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--text-md);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--terra); }
+
+    .nav-call {
+      background: var(--terra) !important;
+      color: white !important;
+      padding: 9px 22px; border-radius: 40px;
+      font-size: 0.78rem !important;
+    }
+    .nav-call:hover { background: #b05530 !important; }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px;
+    }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--bark); transition: 0.3s; }
+
+    .mob-nav {
+      display: none; position: fixed; top: 68px; left: 0; right: 0;
+      background: var(--ivory); border-bottom: 1px solid var(--border);
+      padding: 16px 28px 24px; z-index: 199;
+    }
+    .mob-nav.open { display: block; }
+    .mob-nav a {
+      display: block; padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem; font-weight: 500; color: var(--text);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh; padding-top: 68px;
+      background: var(--paper);
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; overflow: hidden;
+      position: relative;
+    }
+
+    /* Decorative circle */
+    .hero::before {
+      content: '';
+      position: absolute; right: -160px; top: 50%;
+      transform: translateY(-50%);
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, var(--linen) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-left {
+      padding: 80px 28px 80px 60px;
+      position: relative; z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--linen); border: 1px solid var(--border);
+      border-radius: 40px; padding: 6px 16px;
+      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--bark-mid); font-weight: 500; margin-bottom: 28px;
+    }
+
+    .hero-badge::before { content: '●'; color: var(--sage); font-size: 0.5rem; }
+
+    h1.hero-title {
+      font-size: clamp(3rem, 5vw, 5rem);
+      font-weight: 300; color: var(--bark);
+      margin-bottom: 24px;
+    }
+    h1.hero-title em { font-style: italic; color: var(--terra); font-weight: 400; }
+
+    .hero-desc {
+      font-size: 1rem; color: var(--text-md); font-weight: 300;
+      max-width: 400px; margin-bottom: 44px; line-height: 1.8;
+    }
+
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn-terra {
+      background: var(--terra); color: white;
+      padding: 14px 32px; font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      border-radius: 40px; border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-terra:hover { background: #b05530; transform: translateY(-2px); }
+
+    .btn-ghost {
+      background: transparent; color: var(--bark);
+      padding: 14px 32px; font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      border-radius: 40px; border: 1.5px solid var(--border);
+      display: inline-block; transition: border-color 0.2s, transform 0.15s;
+    }
+    .btn-ghost:hover { border-color: var(--bark-mid); transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex; gap: 36px; margin-top: 56px;
+      padding-top: 36px; border-top: 1px solid var(--border);
+    }
+
+    .stat-item {}
+    .stat-n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem; font-weight: 600;
+      color: var(--bark); line-height: 1;
+    }
+    .stat-l { font-size: 0.75rem; color: var(--text-lt); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* Hero right — image mosaic */
+    .hero-right {
+      position: relative; height: 100vh; overflow: hidden;
+    }
+
+    .hero-img-main {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, #c4906a 0%, #7a4a28 50%, #3d2010 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 6rem;
+    }
+
+    /* Floating info card */
+    .hero-float-card {
+      position: absolute; bottom: 48px; left: -36px;
+      background: white; border-radius: 12px;
+      padding: 20px 24px; box-shadow: 0 12px 48px rgba(61,43,26,0.12);
+      width: 220px;
+    }
+    .hfc-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-lt); margin-bottom: 6px; }
+    .hfc-value { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--bark); }
+
+    .hero-float-tag {
+      position: absolute; top: 60px; left: -20px;
+      background: var(--sage); color: white;
+      padding: 10px 16px; border-radius: 8px;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.04em;
+    }
+
+    /* ─── SECTION COMMONS ─── */
+    section { padding: 100px 0; }
+
+    .sec-label {
+      font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--terra); font-weight: 600; margin-bottom: 10px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .sec-label::after { content: ''; flex: 1; max-width: 40px; height: 1px; background: var(--terra-lt); }
+
+    h2.sec-title { font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 300; color: var(--bark); margin-bottom: 14px; }
+
+    .sec-sub { font-size: 0.975rem; color: var(--text-md); font-weight: 300; max-width: 500px; line-height: 1.8; }
+
+    .sec-head { margin-bottom: 60px; }
+    .sec-head.ctr { text-align: center; }
+    .sec-head.ctr .sec-sub { margin: 0 auto; }
+    .sec-head.ctr .sec-label { justify-content: center; }
+    .sec-head.ctr .sec-label::after { display: none; }
+
+    /* ─── ABOUT ─── */
+    .about { background: var(--white); }
+
+    .about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+    /* IMAGE placeholder — swap with <img src="..."> */
+    .about-img-wrap { position: relative; }
+
+    .about-img {
+      width: 100%; aspect-ratio: 3/4;
+      background: linear-gradient(150deg, #ddd0bf 0%, #b8a090 100%);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+      /* 📷 REPLACE with: <img src="about-barista.jpg" alt="Our barista at work"> */
+    }
+
+    .about-chip {
+      position: absolute; top: 28px; right: -20px;
+      background: var(--terra); color: white;
+      padding: 14px 20px; border-radius: 12px;
+      text-align: center;
+    }
+    .about-chip .big { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; line-height: 1; }
+    .about-chip .sm { font-size: 0.7rem; opacity: 0.85; margin-top: 2px; }
+
+    .about-text p { color: var(--text-md); font-weight: 300; font-size: 1rem; line-height: 1.85; margin-bottom: 18px; }
+
+    .about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+
+    .pillar {
+      background: var(--paper); border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .pillar-icon { font-size: 1.4rem; margin-bottom: 8px; }
+    .pillar h4 { font-size: 0.85rem; font-weight: 600; color: var(--bark); margin-bottom: 4px; }
+    .pillar p { font-size: 0.78rem; color: var(--text-lt); font-weight: 300; }
+
+    /* ─── MENU ─── */
+    .menu { background: var(--paper); }
+
+    .menu-tabs {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 48px;
+    }
+
+    .tab-btn {
+      background: white; border: 1.5px solid var(--border);
+      border-radius: 40px; padding: 10px 22px;
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em;
+      color: var(--text-md); cursor: pointer; transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background: var(--bark); color: white; border-color: var(--bark);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;
+    }
+
+    .menu-card {
+      background: white; border-radius: 14px;
+      padding: 28px; border: 1px solid var(--border);
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .menu-card:hover { box-shadow: 0 8px 32px rgba(61,43,26,0.08); transform: translateY(-3px); }
+
+    .mc-icon { font-size: 1.8rem; margin-bottom: 14px; }
+
+    .mc-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--bark); margin-bottom: 8px; }
+
+    .mc-desc { font-size: 0.83rem; color: var(--text-lt); line-height: 1.7; margin-bottom: 18px; font-weight: 300; }
+
+    .mc-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 600; color: var(--terra);
+    }
+
+    /* ─── BEANS ─── */
+    .beans { background: var(--ivory); }
+
+    .beans-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+
+    .bean-card {
+      background: white; border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .bean-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(61,43,26,0.1); }
+
+    /* 📷 REPLACE .bean-img content with: <img src="bean-ethiopia.jpg" alt="Ethiopia Yirgacheffe beans"> */
+    .bean-img {
+      aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem; position: relative;
+    }
+    .bean-img.b1 { background: linear-gradient(135deg, #e8c9a0, #c4906a); }
+    .bean-img.b2 { background: linear-gradient(135deg, #c4d4c0, #8a9e85); }
+    .bean-img.b3 { background: linear-gradient(135deg, #d4b896, #a07850); }
+
+    .bean-tag {
+      position: absolute; top: 12px; right: 12px;
+      background: white; border-radius: 20px;
+      padding: 4px 12px; font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.06em; color: var(--bark-mid);
+    }
+
+    .bean-body { padding: 22px 24px; }
+    .bean-origin { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--terra); font-weight: 600; margin-bottom: 6px; }
+    .bean-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--bark); margin-bottom: 8px; }
+    .bean-desc { font-size: 0.8rem; color: var(--text-lt); line-height: 1.7; margin-bottom: 16px; font-weight: 300; }
+
+    .bean-footer { display: flex; align-items: center; justify-content: space-between; }
+    .bean-price { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--bark); }
+    .bean-wt { font-size: 0.72rem; color: var(--text-lt); }
+
+    .btn-small {
+      background: var(--bark); color: white;
+      padding: 8px 18px; border-radius: 20px;
+      font-size: 0.75rem; font-weight: 500;
+      transition: background 0.2s;
+    }
+    .btn-small:hover { background: var(--terra); }
+
+    /* ─── GALLERY ─── */
+    .gallery { background: var(--paper); }
+
+    /* 📷 All gallery cells should be replaced with <img> tags */
+    .gal-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 220px 220px;
+      gap: 12px;
+    }
+
+    .g {
+      border-radius: 12px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+    }
+
+    .g:nth-child(1) { grid-column: 1/6; grid-row: 1; background: linear-gradient(135deg, #c4906a, #7a4a28); }
+    .g:nth-child(2) { grid-column: 6/9; grid-row: 1; background: linear-gradient(135deg, #8a9e85, #5a7055); }
+    .g:nth-child(3) { grid-column: 9/13; grid-row: 1; background: linear-gradient(135deg, #e8c9a0, #c4906a); }
+    .g:nth-child(4) { grid-column: 1/4; grid-row: 2; background: linear-gradient(135deg, #d4b896, #a07850); }
+    .g:nth-child(5) { grid-column: 4/9; grid-row: 2; background: linear-gradient(135deg, #7a4a28, #3d2010); }
+    .g:nth-child(6) { grid-column: 9/13; grid-row: 2; background: linear-gradient(135deg, #c4906a55, #8a9e8588), var(--linen); }
+
+    /* ─── REVIEWS ─── */
+    .reviews { background: var(--white); }
+
+    .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+
+    .rev-card {
+      background: var(--paper); border-radius: 14px; padding: 32px;
+      border: 1px solid var(--border);
+    }
+
+    .rev-stars { color: #F4A840; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 16px; }
+
+    .rev-quote { font-size: 0.9rem; font-style: italic; color: var(--text-md); line-height: 1.8; margin-bottom: 24px; font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; }
+
+    .rev-author { display: flex; align-items: center; gap: 12px; }
+
+    .rev-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--linen); display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; font-weight: 600; color: var(--bark-mid); flex-shrink: 0;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .rev-name { font-size: 0.875rem; font-weight: 600; color: var(--bark); }
+    .rev-date { font-size: 0.72rem; color: var(--text-lt); }
+
+    /* ─── FAQ ─── */
+    .faq { background: var(--paper); }
+
+    .faq-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; }
+
+    .faq-item { border-bottom: 1px solid var(--border); padding: 22px 0; }
+
+    .faq-q { display: flex; justify-content: space-between; align-items: center; cursor: pointer; gap: 16px; }
+
+    .faq-q h4 { font-size: 0.925rem; font-weight: 500; color: var(--bark); font-family: 'Outfit', sans-serif; }
+
+    .faq-icon {
+      width: 26px; height: 26px; flex-shrink: 0;
+      border-radius: 50%; background: var(--linen);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: var(--terra); transition: transform 0.25s;
+    }
+
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--terra-lt); }
+
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-item.open .faq-a { max-height: 200px; }
+    .faq-a p { padding-top: 12px; font-size: 0.85rem; color: var(--text-md); line-height: 1.75; font-weight: 300; }
+
+    /* ─── VISIT ─── */
+    .visit { background: var(--ivory); }
+
+    .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+
+    .visit-block { margin-bottom: 32px; }
+
+    .vb-label {
+      font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em;
+      color: var(--terra); font-weight: 600; margin-bottom: 10px;
+    }
+
+    .vb-text, .vb-text a { font-size: 0.9rem; color: var(--text-md); font-weight: 300; line-height: 1.75; }
+    .vb-text a:hover { color: var(--terra); }
+
+    .hours-row {
+      display: flex; justify-content: space-between;
+      padding: 9px 0; border-bottom: 1px solid var(--border);
+      font-size: 0.875rem;
+    }
+    .hours-row:last-child { border: none; }
+    .hd { font-weight: 500; color: var(--bark); }
+    .ht { color: var(--text-md); font-weight: 300; }
+
+    /* 📷 Replace map placeholder with Google Maps embed iframe */
+    .map-box {
+      background: var(--linen);
+      border-radius: 14px; aspect-ratio: 4/3;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 14px; border: 1px solid var(--border);
+    }
+    .map-box span { font-size: 3rem; }
+    .map-box p { font-size: 0.85rem; color: var(--text-md); text-align: center; }
+    .map-btn {
+      background: var(--bark); color: white;
+      padding: 10px 24px; border-radius: 30px;
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em;
+      transition: background 0.2s;
+    }
+    .map-btn:hover { background: var(--terra); }
+
+    /* ─── CTA STRIP ─── */
+    .cta-strip {
+      background: linear-gradient(120deg, var(--bark) 0%, #6b3a1f 100%);
+      padding: 80px 0;
+      position: relative; overflow: hidden;
+    }
+
+    .cta-strip::before {
+      content: '';
+      position: absolute; right: -100px; top: -100px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .cta-inner {
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 28px;
+    }
+
+    .cta-inner h2 {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      color: var(--ivory); font-weight: 300;
+      max-width: 500px;
+    }
+
+    .cta-inner h2 em { color: var(--terra-lt); font-style: italic; }
+
+    .cta-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn-white {
+      background: white; color: var(--bark);
+      padding: 14px 28px; border-radius: 40px;
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em;
+      text-transform: uppercase; display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-white:hover { background: var(--ivory); transform: translateY(-2px); }
+
+    .btn-wa {
+      background: #25D366; color: white;
+      padding: 14px 28px; border-radius: 40px;
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-wa:hover { background: #1da851; transform: translateY(-2px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bark); color: rgba(253,250,245,0.55);
+      padding: 64px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid; grid-template-columns: 2.2fr 1fr 1fr; gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .f-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--ivory); margin-bottom: 14px; display: block; }
+    .f-logo span { color: var(--terra-lt); font-style: italic; }
+
+    .f-brand p { font-size: 0.85rem; line-height: 1.75; max-width: 280px; }
+
+    .f-col h5 {
+      font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.16em;
+      color: var(--terra-lt); font-weight: 600; margin-bottom: 18px;
+    }
+
+    .f-col ul { list-style: none; }
+    .f-col ul li { margin-bottom: 10px; }
+    .f-col ul li a { font-size: 0.85rem; color: rgba(253,250,245,0.5); transition: color 0.2s; }
+    .f-col ul li a:hover { color: var(--ivory); }
+
+    .footer-base {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-base p { font-size: 0.78rem; }
+
+    .dc-credit { font-size: 0.75rem; color: rgba(253,250,245,0.35); }
+    .dc-credit a { color: var(--terra-lt); transition: color 0.2s; }
+    .dc-credit a:hover { color: white; }
+
+    /* ─── FLOATING WA ─── */
+    .wa-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 300;
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      font-size: 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+
+    /* ─── REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.up { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 960px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { display: none; }
+      .hero-left { padding: 72px 28px 64px; }
+
+      .about-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .about-chip { right: 0; }
+
+      .beans-grid { grid-template-columns: 1fr 1fr; }
+
+      .reviews-grid { grid-template-columns: 1fr; }
+
+      .faq-cols { grid-template-columns: 1fr; }
+
+      .visit-grid { grid-template-columns: 1fr; }
+
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .f-brand { grid-column: 1/-1; }
+
+      .cta-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 640px) {
+      section { padding: 68px 0; }
+
+      .hero-stats { gap: 24px; flex-wrap: wrap; }
+
+      .beans-grid { grid-template-columns: 1fr; }
+
+      .gal-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: unset;
+      }
+      .g { aspect-ratio: 1; }
+      .g:nth-child(1),
+      .g:nth-child(5) { grid-column: 1/-1; aspect-ratio: 16/9; }
+
+      .footer-grid { grid-template-columns: 1fr; }
+
+      .hero-btns { flex-direction: column; }
+      .btn-terra, .btn-ghost { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">Ember <span>&</span> Oak</a>
+    <ul class="nav-links">
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#beans">Beans</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a href="tel:+919765663222" class="nav-call">📞 Call Us</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mob-nav" id="mobNav">
+  <a href="#about" onclick="closeMob()">Our Story</a>
+  <a href="#menu" onclick="closeMob()">Menu</a>
+  <a href="#beans" onclick="closeMob()">Beans</a>
+  <a href="#gallery" onclick="closeMob()">Gallery</a>
+  <a href="#visit" onclick="closeMob()">Visit Us</a>
+  <a href="tel:+919765663222" onclick="closeMob()">📞 +91 97656 63222</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home" aria-label="Hero">
+  <div class="hero-left">
+    <div class="hero-badge">Indiranagar · Bengaluru</div>
+    <h1 class="hero-title">Slow Down.<br>Sip <em>Something</em><br>Wonderful.</h1>
+    <p class="hero-desc">We source, roast, and brew single-origin coffee with care — right here in the heart of Bengaluru. Every cup is a story worth tasting.</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-terra">View Menu</a>
+      <a href="#beans" class="btn-ghost">Shop Beans</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-n">12+</div>
+        <div class="stat-l">Origins Sourced</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-n">2016</div>
+        <div class="stat-l">Est. Bengaluru</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-n">4.9★</div>
+        <div class="stat-l">Google Rating</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📷 Replace .hero-img-main with: <img src="hero-cafe.jpg" alt="Ember & Oak café interior"> -->
+  <div class="hero-right">
+    <div class="hero-img-main">☕</div>
+    <div class="hero-float-card">
+      <div class="hfc-label">Today's Pour-Over</div>
+      <div class="hfc-value">Coorg Peaberry<br><small style="font-weight:300;font-size:0.85rem;color:var(--text-lt)">Honey Process</small></div>
+    </div>
+    <div class="hero-float-tag">✦ Freshly Roasted</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="about-img-wrap reveal">
+        <!-- 📷 Replace with: <img src="about-roastery.jpg" alt="Our roastery in Indiranagar" style="border-radius:16px"> -->
+        <div class="about-img">🫘</div>
+        <div class="about-chip">
+          <div class="big">9+</div>
+          <div class="sm">Years Roasting</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="sec-label">Our Story</div>
+        <h2 class="sec-title">Rooted in Craft,<br>Brewed with Heart</h2>
+        <p>Ember & Oak began in 2016 as a small weekend roasting project in a garage off 100 Feet Road. We had one drum roaster, zero budget, and an obsession with how different Indian and international beans could taste with the right care.</p>
+        <p>Today we're a full roastery and café — but our north star hasn't moved. We travel to estates in Coorg, Chikmagalur, and Araku every season. We also source direct from farms in Ethiopia and Colombia. Every bag you buy funds that relationship.</p>
+        <div class="about-pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🌱</div>
+            <h4>Farm Direct</h4>
+            <p>Paid above MSP, always</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🔥</div>
+            <h4>Small-Batch</h4>
+            <p>Roasted twice a week</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🌍</div>
+            <h4>Global Origins</h4>
+            <p>India, Ethiopia, Colombia</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🤝</div>
+            <h4>Community</h4>
+            <p>Monthly cuppings & events</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-label">What We Brew</div>
+      <h2 class="sec-title">The Menu</h2>
+      <p class="sec-sub">Every drink made to order using beans roasted right here in our shop.</p>
+    </div>
+
+    <div class="menu-tabs reveal">
+      <button class="tab-btn active" onclick="switchTab('esp',this)">Espresso Bar</button>
+      <button class="tab-btn" onclick="switchTab('filter',this)">Filter Coffee</button>
+      <button class="tab-btn" onclick="switchTab('food',this)">Food & Bites</button>
+    </div>
+
+    <div class="tab-content active" id="tab-esp">
+      <div class="menu-card">
+        <div class="mc-icon">☕</div>
+        <div class="mc-name">Espresso</div>
+        <p class="mc-desc">A tight, sweet double shot of our house blend. Caramel and dark chocolate up front, stone fruit finish.</p>
+        <div class="mc-price">₹160</div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-icon">🥛</div>
+        <div class="mc-name">Oak Latte</div>
+        <p class="mc-desc">Our signature latte with house-made oat milk and a hint of toasted hazelnut. Creamy, smooth, warming.</p>
+        <div class="mc-price">₹280</div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-icon">🧊</div>
+        <div class="mc-name">Iced Caramel Cortado</div>
+        <p class="mc-desc">Equal parts espresso and milk over ice, finished with house caramel and sea salt flakes.</p>
+        <div class="mc-price">₹310</div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-icon">🌿</div>
+        <div class="mc-name">Matcha Flat White</div>
+        <p class="mc-desc">Ceremonial-grade matcha blended into velvety microfoam milk with a single ristretto shot underneath.</p>
+        <div class="mc-price">₹320</div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-icon">🫖</div>
+        <div class="mc-name">Dirty Chai Latte</div>
+        <p class="mc-desc">House-spiced masala chai concentrate with double espresso and steamed whole milk. Bold and aromatic.</p>
+        <div class="mc-price">₹290</div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-icon">❄️</div>
+        <div class="mc-name">Cold Brew Float</div>
+        <p class="mc-desc">24-hour cold brew topped with local vanilla bean ice cream and a dusting of cocoa powder.</p>
+        <div class="mc-price">₹340</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-filter">
+      <div class="menu-card">
+        <div class="mc-icon">💧</div>
+        <div class="mc-name">Pour Over</div>
+        <p class="mc-desc">Choose your single origin. Brewed through a Kalita Wave for full sweetness and clarity. Ask your barista.</p>
+        <div class="mc-price">₹260</div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-icon">⏱️</div>
+        <div class="mc-name">AeroPress</div>
+        <p class="mc-desc">A punchy, concentrated brew. Great for bold Indian estates. Ask your barista for the day's pick.</p>
+        <div class="mc-price">₹240</div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-icon">🧊</div>
+        <div class="mc-name">Japanese Iced Pour Over</div>
+        <p class="mc-desc">Hot brew directly onto ice. Crisp, bright, and refreshing — perfect for Bengaluru afternoons.</p>
+        <div class="mc-price">₹280</div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-icon">🫙</div>
+        <div class="mc-name">Cold Brew (350ml)</div>
+        <p class="mc-desc">Steeped for 20 hours in filtered water. Smooth, low-acid, naturally sweet. No ice needed.</p>
+        <div class="mc-price">₹260</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-food">
+      <div class="menu-card">
+        <div class="mc-icon">🥐</div>
+        <div class="mc-name">Butter Croissant</div>
+        <p class="mc-desc">Baked fresh each morning. Flakey, buttery, perfectly laminated. Best with an espresso.</p>
+        <div class="mc-price">₹180</div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-icon">🍞</div>
+        <div class="mc-name">Avocado Toast</div>
+        <p class="mc-desc">Sourdough from a local bakery, smashed avo, chilli flakes, lemon, and microgreens.</p>
+        <div class="mc-price">₹380</div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-icon">🍫</div>
+        <div class="mc-name">Dark Chocolate Brownie</div>
+        <p class="mc-desc">Dense and fudgy, made with 70% dark chocolate. Pairs beautifully with a cortado.</p>
+        <div class="mc-price">₹160</div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-icon">🥗</div>
+        <div class="mc-name">Grain Bowl</div>
+        <p class="mc-desc">Farro, roasted seasonal vegetables, tahini dressing, pickled onion, and toasted seeds.</p>
+        <div class="mc-price">₹420</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEANS -->
+<section class="beans" id="beans">
+  <div class="container">
+    <div class="sec-head ctr reveal">
+      <div class="sec-label">Roastery Shop</div>
+      <h2 class="sec-title">Fresh Roasted Beans</h2>
+      <p class="sec-sub">Roasted in-house every Tuesday & Friday. Available at the café or for delivery across India.</p>
+    </div>
+    <div class="beans-grid reveal">
+
+      <div class="bean-card">
+        <!-- 📷 Replace .bean-img with: <img src="bean-coorg.jpg" alt="Coorg Estate beans"> -->
+        <div class="bean-img b1"><span>🌱</span><span class="bean-tag">Light</span></div>
+        <div class="bean-body">
+          <div class="bean-origin">India · Coorg, Karnataka</div>
+          <div class="bean-name">Coorg Peaberry</div>
+          <p class="bean-desc">Honey-processed peaberry from a small family estate in Kodagu. Juicy orange, brown sugar, and jasmine.</p>
+          <div class="bean-footer">
+            <div>
+              <div class="bean-price">₹850</div>
+              <div class="bean-wt">per 250g bag</div>
+            </div>
+            <a href="https://wa.me/919765663222?text=I'd+like+to+order+Coorg+Peaberry+beans" class="btn-small" target="_blank">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bean-card">
+        <!-- 📷 Replace .bean-img with: <img src="bean-ethiopia.jpg" alt="Ethiopia Yirgacheffe beans"> -->
+        <div class="bean-img b2"><span>🌍</span><span class="bean-tag">Light–Med</span></div>
+        <div class="bean-body">
+          <div class="bean-origin">Ethiopia · Yirgacheffe</div>
+          <div class="bean-name">Konga Washed</div>
+          <p class="bean-desc">Floral bergamot, blueberry, and lemon zest. A classic washed Yirgacheffe that never disappoints.</p>
+          <div class="bean-footer">
+            <div>
+              <div class="bean-price">₹1,100</div>
+              <div class="bean-wt">per 250g bag</div>
+            </div>
+            <a href="https://wa.me/919765663222?text=I'd+like+to+order+Konga+Washed+beans" class="btn-small" target="_blank">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bean-card">
+        <!-- 📷 Replace .bean-img with: <img src="bean-araku.jpg" alt="Araku Valley beans"> -->
+        <div class="bean-img b3"><span>🏔️</span><span class="bean-tag">Medium</span></div>
+        <div class="bean-body">
+          <div class="bean-origin">India · Araku Valley, AP</div>
+          <div class="bean-name">Araku Tribal Natural</div>
+          <p class="bean-desc">Dark cherry, jaggery sweetness, and a clean cocoa finish. Grown by tribal farmers at 900m altitude.</p>
+          <div class="bean-footer">
+            <div>
+              <div class="bean-price">₹780</div>
+              <div class="bean-wt">per 250g bag</div>
+            </div>
+            <a href="https://wa.me/919765663222?text=I'd+like+to+order+Araku+Tribal+Natural+beans" class="btn-small" target="_blank">Order</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="sec-head ctr reveal">
+      <div class="sec-label">Inside Ember & Oak</div>
+      <h2 class="sec-title">Come As You Are</h2>
+    </div>
+    <!-- 📷 Replace each .g with <img src="gallery-X.jpg" alt="..."> inside the same div -->
+    <div class="gal-grid reveal">
+      <div class="g">☕</div>
+      <div class="g">🫘</div>
+      <div class="g">🌿</div>
+      <div class="g">🥐</div>
+      <div class="g">📖</div>
+      <div class="g">✨</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="sec-head ctr reveal">
+      <div class="sec-label">What Guests Say</div>
+      <h2 class="sec-title">Regulars & First-Timers</h2>
+    </div>
+    <div class="reviews-grid reveal">
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-quote">"Best pour-over I've had in Bengaluru. The Coorg Peaberry was floral and so clean. The team genuinely knows their craft — they explained the entire process."</p>
+        <div class="rev-author">
+          <div class="rev-avatar">P</div>
+          <div>
+            <div class="rev-name">Priya Nair</div>
+            <div class="rev-date">Google · 3 weeks ago</div>
+          </div>
+        </div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-quote">"I come here every single morning before work. The Oak Latte is my standing order and it never wavers. Perfect ambience to start the day."</p>
+        <div class="rev-author">
+          <div class="rev-avatar">R</div>
+          <div>
+            <div class="rev-name">Rahul Menon</div>
+            <div class="rev-date">Google · 1 month ago</div>
+          </div>
+        </div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-quote">"Ordered the Araku Tribal beans online and they arrived in two days, so fresh I could smell the roast through the packaging. Absolutely converted."</p>
+        <div class="rev-author">
+          <div class="rev-avatar">A</div>
+          <div>
+            <div class="rev-name">Ananya Krishnan</div>
+            <div class="rev-date">Google · 6 weeks ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="sec-head ctr reveal">
+      <div class="sec-label">Questions</div>
+      <h2 class="sec-title">Frequently Asked</h2>
+    </div>
+    <div class="faq-cols reveal">
+      <div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <h4>Do you ship beans across India?</h4>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-a"><p>Yes! We ship PAN India via courier. Orders placed before 12pm on Tuesday or Thursday ship the same day as a fresh roast batch. Typically 2–4 days delivery.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <h4>Is there parking near the café?</h4>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-a"><p>There's street parking on 12th Main and a paid parking lot 200m away. We're very walkable from the Indiranagar metro station — just a 5-minute walk.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <h4>Do you have plant-based milk options?</h4>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-a"><p>Absolutely. We stock oat milk and almond milk at no extra charge. Our in-house oat milk is made fresh every morning from rolled oats.</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <h4>Can I host a private event or corporate tasting?</h4>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-a"><p>Yes! We host private cuppings, team offsites, and intimate gatherings for up to 20 guests. Reach out via WhatsApp or call us to check availability and pricing.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <h4>Do you offer brewing workshops?</h4>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-a"><p>We run monthly pour-over workshops every first Saturday. They're ₹1,200 per person and cover grind size, water temperature, and brew ratios. DM us to register.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <h4>Is there WiFi for working from the café?</h4>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-a"><p>Yes — fast, free WiFi throughout. During peak hours (8–11am) we request that screens stay to the back seating area so everyone has a comfortable space.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-label">Find Us</div>
+      <h2 class="sec-title">Come Visit</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="reveal">
+        <div class="visit-block">
+          <div class="vb-label">Address</div>
+          <p class="vb-text">14, 12th Main Road, HAL 2nd Stage<br>Indiranagar, Bengaluru – 560 008<br>Karnataka, India</p>
+        </div>
+        <div class="visit-block">
+          <div class="vb-label">Contact</div>
+          <p class="vb-text">
+            <a href="tel:+919765663222">📞 +91 97656 63222</a><br>
+            <a href="mailto:hello@emberandoak.in">✉️ hello@emberandoak.in</a>
+          </p>
+        </div>
+        <div class="visit-block">
+          <div class="vb-label">Opening Hours</div>
+          <div class="hours-row"><span class="hd">Monday – Friday</span><span class="ht">7:30am – 7:00pm</span></div>
+          <div class="hours-row"><span class="hd">Saturday</span><span class="ht">8:00am – 6:00pm</span></div>
+          <div class="hours-row"><span class="hd">Sunday</span><span class="ht">9:00am – 4:00pm</span></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <!-- 📷 Replace with Google Maps iframe: <iframe src="https://maps.google.com/maps?q=Indiranagar+Bengaluru&output=embed" ...> -->
+        <div class="map-box">
+          <span>📍</span>
+          <p>14, 12th Main, Indiranagar<br>Bengaluru – 560 008</p>
+          <a href="https://maps.google.com/?q=12th+Main+Indiranagar+Bengaluru" target="_blank" rel="noopener" class="map-btn">Open in Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div class="container">
+    <div class="cta-inner">
+      <h2>Ready to visit or want to <em>order beans</em>? We'd love to hear from you.</h2>
+      <div class="cta-btns">
+        <a href="tel:+919765663222" class="btn-white">📞 Call Now</a>
+        <a href="https://wa.me/919765663222?text=Hi!+I'd+like+to+know+more+about+Ember+%26+Oak" target="_blank" rel="noopener" class="btn-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="f-brand">
+        <a href="#" class="f-logo">Ember <span>&</span> Oak</a>
+        <p>Specialty coffee roastery and café in Indiranagar, Bengaluru. Sourced with care, roasted in-house, brewed with intention since 2016.</p>
+      </div>
+      <div class="f-col">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#beans">Shop Beans</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#visit">Visit Us</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+919765663222">+91 97656 63222</a></li>
+          <li><a href="mailto:hello@emberandoak.in">hello@emberandoak.in</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="https://wa.me/919765663222" target="_blank">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <p>© 2025 Ember & Oak Coffee Roastery · Bengaluru, India</p>
+      <div class="dc-credit">
+        Designed by <a href="https://digitalcraft.market" target="_blank" rel="noopener">DigitalCraft</a> · Want a website like this? <a href="https://digitalcraft.market" target="_blank" rel="noopener">Visit DigitalCraft</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WA -->
+<a href="https://wa.me/919765663222?text=Hi!+I'd+like+to+know+more+about+Ember+%26+Oak" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  // Mobile nav
+  function toggleMob() { document.getElementById('mobNav').classList.toggle('open'); }
+  function closeMob() { document.getElementById('mobNav').classList.remove('open'); }
+  document.addEventListener('click', e => {
+    const n = document.getElementById('mobNav');
+    if (n.classList.contains('open') && !n.contains(e.target) && !e.target.closest('.hamburger')) n.classList.remove('open');
+  });
+
+  // Tabs
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // FAQ
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Reveal on scroll
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('up'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Nav link highlight
+  const secs = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    secs.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = '';
+      if (a.getAttribute('href') === '#' + cur) a.style.color = 'var(--terra)';
+    });
+  });
+</script>
+</body>
+</html>
